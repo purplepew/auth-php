@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/infoForms.css" />
     <link rel="stylesheet" href="./styles/logoutBtn.css" />
     <link rel="stylesheet" href="./styles/catsGallery.css" />
+    <link rel="stylesheet" href="./styles/infoForms.css" />
     <script src="./scripts/infoSubmitHandler.js" defer></script>
     <script src="./scripts/logoutHandler.js" defer></script>
     <script src="./scripts/prefetchCats.js" defer></script>
@@ -74,7 +74,7 @@
                 <input type="text" name="Address" required class="form-input">
             </div>
 
-            <p id="infoFormResponse" class="toaster"></p>
+            <p id="infoResponse" class="toaster"></p>
 
             <input type="submit" value="Add information" class="primary-btn">
             <p>Or do it later.</p>

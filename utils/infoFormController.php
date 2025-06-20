@@ -48,9 +48,9 @@ $username = $_SESSION['username'];
 // Update user's info in the database
 $stmt = $conn->prepare("UPDATE users SET first_name = ?, last_name = ?, gender = ?, birthday = ?, address = ? WHERE username = ?");
 $stmt->bind_param("ssssss", $firstName, $lastName, $gender, $birthday, $address, $username);
+$conn->query("UPDATE users SET has_info = 1 WHERE username = '$username'");
 
 if ($stmt->execute()) {
-    $conn->query("UPDATE users SET has_info = 1 WHERE username = '$username'");
     jsonResponse(['message' => 'Information saved successfully.'], 200);
 } else {
     jsonResponse(['message' => 'Failed to save information.'], 500);
@@ -59,13 +59,13 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close();
 
-
 // Helper: Send JSON response
 function jsonResponse($data = [], int $statusCode = 200): void
 {
-    http_response_code($statusCode);
     header('Content-Type: application/json');
+    http_response_code($statusCode);
     echo json_encode($data);
     exit;
 }
+
 ?>

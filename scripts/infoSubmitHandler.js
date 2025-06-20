@@ -8,8 +8,8 @@ async function handleSubmitInfo(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const firstName = formData.get('First name')?.trim();
-    const lastName = formData.get('Last name')?.trim();
+    const firstName = formData.get('Firstname')?.trim();
+    const lastName = formData.get('Lastname')?.trim();
     const gender = formData.get('Gender')?.trim();
     const birthday = formData.get('Birthday')?.trim();
     const address = formData.get('Address')?.trim();
@@ -41,14 +41,21 @@ async function handleSubmitInfo(e) {
         // Address
         if (!address) throw { message: 'Address is required.' };
         if (address.length < 5) throw { message: 'Address must be at least 5 characters.' };
+       const response = await fetch('./utils/infoFormController.php', {
+  method: 'POST',
+  body: formData
+});
+const rawText = await response.text(); // get raw response
 
-        const response = await fetch('./utils/infoController.php', {
-            method: 'POST',
-            body: formData
-        });
+console.log(rawText); // check in dev console
 
-        const result = await response.json();
-
+let result;
+try {
+  result = JSON.parse(rawText);
+} catch (err) {
+  throw new Error('Invalid JSON returned from server:\n' + rawText);
+}
+        
         if (!response.ok) throw new Error(result.message);
 
         infoResponse.style.color = 'green';
@@ -70,4 +77,27 @@ async function handleSubmitInfo(e) {
         void infoResponse.offsetWidth;
         infoResponse.classList.add('show');
     }
+}
+
+function renderRestOfTheCats() {
+    const allCats = JSON.parse(sessionStorage.getItem('prefetchedCats') || '[]');
+    const gallery = document.getElementById('catGallery');
+
+    const remaining = allCats.slice(3);
+
+    remaining.forEach(cat => {
+        const breed = cat.breeds[0];
+        const card = document.createElement('div');
+        card.className = 'cat-card';
+        card.innerHTML = `
+            <img src="${cat.url}" alt="Cat Image">
+            <div class="desc">
+                <h3>${breed?.name || 'Unknown Breed'}</h3>
+                <p>${breed?.description || 'No description available.'}</p>
+            </div>
+        `;
+        gallery.appendChild(card);
+    });
+
+    sessionStorage.removeItem('remainingCats');
 }

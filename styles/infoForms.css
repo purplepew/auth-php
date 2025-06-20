@@ -1,7 +1,5 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    display: grid;
-    place-content: center;
 }
 
 .form-card {
