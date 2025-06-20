@@ -2,7 +2,9 @@ const infoForm = document.getElementById("infoForm")
 const infoResponse = document.getElementById('infoResponse')
 const welcomeDiv = document.querySelector('.welcome')
 
-infoForm.addEventListener('submit', handleSubmitInfo)
+if (infoForm) {
+  infoForm.addEventListener('submit', handleSubmitInfo);
+}
 
 async function handleSubmitInfo(e) {
     e.preventDefault();
@@ -41,26 +43,19 @@ async function handleSubmitInfo(e) {
         // Address
         if (!address) throw { message: 'Address is required.' };
         if (address.length < 5) throw { message: 'Address must be at least 5 characters.' };
-       const response = await fetch('./utils/infoFormController.php', {
-  method: 'POST',
-  body: formData
-});
-const rawText = await response.text(); // get raw response
-
-console.log(rawText); // check in dev console
-
-let result;
-try {
-  result = JSON.parse(rawText);
-} catch (err) {
-  throw new Error('Invalid JSON returned from server:\n' + rawText);
-}
+        const response = await fetch('./utils/infoFormController.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
         
         if (!response.ok) throw new Error(result.message);
 
         infoResponse.style.color = 'green';
         infoResponse.textContent = result.message;
         e.target.reset();
+        renderRestOfTheCats()
 
         setTimeout(() => {
             infoForm.remove();

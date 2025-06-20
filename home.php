@@ -38,14 +38,13 @@
     $hasInfoJS = $user['has_info'] ? 'true' : 'false';
     ?>
 
+    <div class="welcome">
+        <p>Welcome, <strong><?= htmlspecialchars($username) ?></strong>!</p>
+        <button id="logoutBtn" class="danger-btn">Logout</button>
+        <p id="logoutResponse" class="toaster"></p>
+    </div>
 
     <?php if (!$user['has_info']): ?>
-        <div class="welcome">
-            <p>Welcome, <strong><?= htmlspecialchars($username) ?></strong>!</p>
-            <button id="logoutBtn" class="danger-btn">Logout</button>
-            <p id="logoutResponse" class="toaster"></p>
-        </div>
-
         <form method="POST" id="infoForm" class="form-card form-panel">
             <div class="row">
                 <div class="form-group">
@@ -77,7 +76,7 @@
             <p id="infoResponse" class="toaster"></p>
 
             <input type="submit" value="Add information" class="primary-btn">
-            <p>Or do it later.</p>
+            <p>Fill out your additional information to see more cats!</p>
         </form>
     <?php else: ?>
         <p>You’ve already completed your profile. 🎉</p>

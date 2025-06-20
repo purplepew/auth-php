@@ -114,6 +114,11 @@ async function handleSignup(e) {
         signupResponse.style.color = 'green'
         signupResponse.textContent = result.message;
         e.target.reset();
+        
+        setTimeout(() => {
+            window.location.href = './home.php'
+        }, 650)
+
     } catch (error) {
         signupResponse.textContent = error.message || 'Signup failed.';
         signupResponse.classList.remove('show');
