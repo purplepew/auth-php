@@ -1,0 +1,148 @@
+
+.form-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 1rem;
+    color: #444;
+}
+
+.form-input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f7f7f7;
+    transition: border 0.2s;
+
+}
+
+.form-input:focus {
+    border: 1.5px solid #222;
+    outline: none;
+    background: #fff;
+}
+
+.primary-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.9rem;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    letter-spacing: 0.01em;
+}
+.primary-btn:hover {
+    background: #111;
+}
+
+/* Hides login/signup form */
+.form-panel {
+    display: none;
+}
+
+/* Show login form when the login radio form is checked*/
+#showLogin:checked ~ #loginForm {
+    display: block;
+}
+
+/* Show signup form when the signup radio form is checked*/
+#showSignup:checked ~ #signupForm {
+    display: block;
+}
+
+/* signup feedback */
+#signupResponse {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#signupResponse.show {
+  opacity: 1;
+}
+
+
+
+.form-switcher label {
+   text-decoration: underline;
+   cursor: pointer;
+    color: #444;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: rgba(0,0,0,.5); /* Primary color */
+  background-color: transparent;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  border: 2px solid white;
+}
+
+/* Tooltip box */
+.tooltip-wrapper .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: black; /* Secondary color */
+  color: white;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip-wrapper .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* bottom of tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+

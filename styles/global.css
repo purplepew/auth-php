@@ -1,0 +1,20 @@
+body {
+    background: #f7f7f7;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: grid;
+    justify-items: end;
+    align-content: center;
+    padding-right: 1rem;
+}
+
+
+@media (max-width: 599px) {
+ 
+   body{
+    justify-items: center;
+   }
+  
+} 

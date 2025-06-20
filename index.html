@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/forms.css" />
+    <link rel="stylesheet" href="./styles/formHints.css" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script src="./scripts/authHandler.js" defer></script>
+    <script src="./scripts/authState.js" defer></script>
+</head>
+
+<body>
+    <!-- login/signup toggle radio button -->
+    <input type="radio" name="formState" id="showLogin" hidden checked>
+    <input type="radio" name="formState" id="showSignup" hidden>
+
+    <!-- login form -->
+    <form method="POST" id="loginForm" class="form-card form-panel">
+        <div class="form-group">
+            <label for="username" class="form-label" title="15 Characters max">Username:</label>
+            <input type="text" name="username" required class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" required class="form-input">
+        </div>
+
+        <div class="form-switcher">
+            <label for="showSignup">
+                <p>Create a new account?</p>
+            </label>
+        </div>
+
+        <p id="loginResponse" class="toaster"></p>
+
+        <input type="submit" value="Login" class="primary-btn">
+
+
+
+    </form>
+
+    <!-- signup form -->
+    <form method="POST" id="signupForm" class="form-card form-panel">
+        <div class="form-group">
+            <label for="username" class="form-label">Username:
+                <div class="tooltip-wrapper">?
+                    <div class="tooltip-text">15 characters max. <br /> Lorem ipsum </div>
+                </div>
+            </label>
+            <input type="text" name="username" required class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" name="email" required class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" required class="form-input">
+        </div>
+
+        <div class="form-switcher">
+            <label for="showLogin">Already have an account?</label>
+        </div>
+
+        <p id="signupResponse" class="toaster"></p>
+
+        <input type="submit" value="Create" class="primary-btn">
+    </form>
+
+    <div class="form-hints">
+        <h4>Username Rules</h4>
+        <ul>
+            <li>4–20 characters</li>
+            <li>Letters, numbers, and underscores only</li>
+        </ul>
+
+        <h4>Password Rules</h4>
+        <ul>
+            <li>At least 6 characters</li>
+            <li>Must include letters and numbers</li>
+        </ul>
+
+        <h4>Email Rules</h4>
+        <ul>
+            <li>Valid email format (e.g., user@example.com)</li>
+        </ul>
+    </div>
+
+
+</body>
+
+
+</html>
