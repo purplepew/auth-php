@@ -13,10 +13,29 @@ async function handleLogin(e) {
     const formData = new FormData(e.target);
     const username = formData.get('username');
     const password = formData.get('password');
+    const email = formData.get('email');
 
-    if (!username || !password) return;
+    loginResponse.style.color = 'firebrick';
+    loginResponse.textContent = '';
 
     try {
+        if (!username) throw { message: 'Username is required.' };
+        if (username.length < 4 || username.length > 20) {
+            throw { message: 'Username must be 4-15 characters long.' };
+        }
+        if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+            throw { message: 'Username can only contain letters, numbers, and underscores.' };
+        }
+
+        // Password checks
+        if (!password) throw { message: 'Password is required.' };
+        if (password.length < 6) {
+            throw { message: 'Password must be at least 6 characters long.' };
+        }
+        if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+            throw { message: 'Password must contain both letters and numbers.' };
+        }
+
         const response = await fetch('./utils/loginController.php', {
             method: 'POST',
             body: formData,
@@ -30,13 +49,19 @@ async function handleLogin(e) {
         loginResponse.style.color = 'green'
         loginResponse.textContent = result.message;
 
+        loginResponse.classList.remove('show');
+        void loginResponse.offsetWidth; // Force reflow
+        loginResponse.classList.add('show');
+
         setTimeout(() => {
             window.location.href = './home.php'
         }, 150)
 
     } catch (error) {
-        loginResponse.style.color = 'firebrick'
         loginResponse.textContent = error.message;
+        loginResponse.classList.remove('show');
+        void loginResponse.offsetWidth; // Force reflow
+        loginResponse.classList.add('show');
     }
 }
 

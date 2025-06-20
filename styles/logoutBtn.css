@@ -1,0 +1,20 @@
+.danger-btn {
+  background-color: firebrick;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toaster {
+  margin-top: 10px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.welcome{
+  display: grid;
+  place-content: center;
+}

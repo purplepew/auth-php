@@ -144,5 +144,16 @@
   opacity: 1;
 }
 
+/* login/signup response */
+.toaster {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.toaster.show {
+  opacity: 1;
+}
 
 
