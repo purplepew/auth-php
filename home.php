@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="./styles/logoutBtn.css" />
     <link rel="stylesheet" href="./styles/catsGallery.css" />
     <link rel="stylesheet" href="./styles/infoForms.css" />
+    <link rel="stylesheet" href="./styles/infoModal.css" />
     <script src="./scripts/infoSubmitHandler.js" defer></script>
     <script src="./scripts/logoutHandler.js" defer></script>
     <script src="./scripts/prefetchCats.js" defer></script>
     <script src="./scripts/renderCats.js" defer></script>
+    <script src="./scripts/infoModal.js" defer></script>
     <title>Home</title>
 </head>
 
@@ -40,6 +42,7 @@
 
     <div class="welcome">
         <p>Welcome, <strong><?= htmlspecialchars($username) ?></strong>!</p>
+
         <button id="logoutBtn" class="danger-btn">Logout</button>
         <p id="logoutResponse" class="toaster"></p>
     </div>
@@ -79,7 +82,31 @@
             <p>Fill out your <em>additional information</em> to see more <strong><em>cats!</em></strong></p>
         </form>
     <?php else: ?>
+
+        <?php
+        $userInfoResult = $conn->query("SELECT * FROM users WHERE username = '$username'");
+        $userInfo = $userInfoResult->fetch_assoc();
+        ?>
+
         <p>You’ve already completed your profile. 🎉</p>
+        <button class="infoModalBtn" onclick="openInfoModal()">View My Info</button>
+
+        <div class="modal-overlay" id="infoModal">
+            <div class="modal">
+                <button class="close-btn" onclick="closeInfoModal()">×</button>
+                <h2>👤 Your Information</h2>
+                <ul>
+                    <li><strong>Username:</strong> <?= htmlspecialchars($userInfo['username']) ?></li>
+                    <li><strong>Email:</strong> <?= htmlspecialchars($userInfo['email']) ?></li>
+                    <li><strong>Name:</strong> <?= htmlspecialchars($userInfo['first_name'] . ' ' . $userInfo['last_name']) ?>
+                    </li>
+                    <li><strong>Gender:</strong> <?= htmlspecialchars($userInfo['gender']) ?></li>
+                    <li><strong>Birthday:</strong> <?= htmlspecialchars($userInfo['birthday']) ?></li>
+                    <li><strong>Address:</strong> <?= htmlspecialchars($userInfo['address']) ?></li>
+                </ul>
+                <button onclick="closeInfoModal()">Close</button>
+            </div>
+        </div>
     <?php endif; ?>
 
     <h1>🐱 Cat Gallery</h1>
