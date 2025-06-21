@@ -4,17 +4,17 @@ body {
     margin: 0;
     min-height: 100vh;
     display: flex;
-    align-items: flex-end;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem;
 }
 
 
 @media (max-width: 799px) {
- 
-   body{
-    align-items: center;
+    
+    body{
+        align-items: center;
+        flex-direction: column;
    }
   
 } 

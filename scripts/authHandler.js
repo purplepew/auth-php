@@ -113,9 +113,13 @@ async function handleSignup(e) {
 
         signupResponse.style.color = 'green'
         signupResponse.textContent = result.message;
-        e.target.reset();
+
+        signupResponse.classList.remove('show');
+        void signupResponse.offsetWidth; // Force reflow
+        signupResponse.classList.add('show');
         
         setTimeout(() => {
+            e.target.reset();
             window.location.href = './home.php'
         }, 650)
 

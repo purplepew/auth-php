@@ -1,5 +1,7 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
+    display: grid;
+    place-content: center;
 }
 
 .form-card {
@@ -62,4 +64,9 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
 }

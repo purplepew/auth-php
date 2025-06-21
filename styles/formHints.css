@@ -8,6 +8,7 @@
     border: 1px solid #ccc;
     margin-top: .5rem;
     max-width: 300px;
+    min-width: 300px;
 }
 
 .form-hints h4 {

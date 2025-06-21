@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/forms.css" />
     <link rel="stylesheet" href="./styles/formHints.css" />
+    <link rel="stylesheet" href="./styles/heroBanner.css" />
     <link rel="stylesheet" href="./styles/global.css" />
     <script src="./scripts/authHandler.js" defer></script>
     <script src="./scripts/authState.js" defer></script>
@@ -14,83 +15,94 @@
 </head>
 
 <body>
+    <!-- cat hero banner -->
+    <div class="hero">
+        <svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 32 32">
+            <path
+                d="m29 1.2-2.3 3.6c-1.8-.6-4.6-.5-6.4 0l-2-3.6c-3.5 6.5-2.6 10.5 0 12.6l-1.2.8c-11-8.8-20.8 1.1-14.4 10h.1a8.4 8.4 0 0 0 4 3.2c2 .8 4.1.6 6.2.3s4-.7 6-.6c2 .2 3.9.7 5.7 2.6 1.2 1.3 2.9-.1 1.5-1.5-2.2-2.1-4.6-3-6.9-3.1s-4.5.3-6.5.5c-2 .3-3.7.5-5.2-.1-.7-.3-1.4-.7-2.1-1.4H28c1-3.7 1.2-7.7 0-10.2 3.6-2 5-6.4 1-13.1zm-6.8 9.7c-2.3 1-3.4.2-3.8-1.7C20.6 7.8 22 9 22.2 11zm2.9 0c.2-2 1.5-3.1 3.8-1.7-.5 1.9-1.5 2.8-3.8 1.7z" />
+        </svg>
+        <p>LOG IN NOW, ADORABLE CATS AWAIT!</p>
+    </div>
+
     <!-- login/signup toggle radio button -->
-    <input type="radio" name="formState" id="showLogin" hidden checked>
-    <input type="radio" name="formState" id="showSignup" hidden>
 
-    <!-- login form -->
-    <form method="POST" id="loginForm" class="form-card form-panel">
-        <div class="form-group">
-            <label for="username" class="form-label" title="15 Characters max">Username:</label>
-            <input type="text" name="username" required class="form-input">
+    <div class="form-wrapper">
+        <input type="radio" name="formState" id="showLogin" hidden checked>
+        <input type="radio" name="formState" id="showSignup" hidden>
+        <!-- login form -->
+        <form method="POST" id="loginForm" class="form-card form-panel">
+            <div class="form-group">
+                <label for="username" class="form-label" title="15 Characters max">Username:</label>
+                <input type="text" name="username" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" required class="form-input">
+            </div>
+
+            <div class="form-switcher">
+                <label for="showSignup">
+                    <p>Create a new account?</p>
+                </label>
+            </div>
+
+            <p id="loginResponse" class="toaster"></p>
+
+            <input type="submit" value="Login" class="primary-btn">
+
+
+
+        </form>
+
+        <!-- signup form -->
+        <form method="POST" id="signupForm" class="form-card form-panel">
+            <div class="form-group">
+                <label for="username" class="form-label">Username:
+                    <div class="tooltip-wrapper">?
+                        <div class="tooltip-text">15 characters max. <br /> Lorem ipsum </div>
+                    </div>
+                </label>
+                <input type="text" name="username" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" name="email" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" required class="form-input">
+            </div>
+
+            <div class="form-switcher">
+                <label for="showLogin">Already have an account?</label>
+            </div>
+
+            <p id="signupResponse" class="toaster"></p>
+
+            <input type="submit" value="Create" class="primary-btn">
+        </form>
+
+        <div class="form-hints">
+            <h4>Username Rules</h4>
+            <ul>
+                <li>4–20 characters</li>
+                <li>Letters, numbers, and underscores only</li>
+            </ul>
+
+            <h4>Password Rules</h4>
+            <ul>
+                <li>At least 6 characters</li>
+                <li>Must include letters and numbers</li>
+            </ul>
+
+            <h4>Email Rules</h4>
+            <ul>
+                <li>Valid email format (e.g., user@example.com)</li>
+            </ul>
         </div>
-
-        <div class="form-group">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" name="password" required class="form-input">
-        </div>
-
-        <div class="form-switcher">
-            <label for="showSignup">
-                <p>Create a new account?</p>
-            </label>
-        </div>
-
-        <p id="loginResponse" class="toaster"></p>
-
-        <input type="submit" value="Login" class="primary-btn">
-
-
-
-    </form>
-
-    <!-- signup form -->
-    <form method="POST" id="signupForm" class="form-card form-panel">
-        <div class="form-group">
-            <label for="username" class="form-label">Username:
-                <div class="tooltip-wrapper">?
-                    <div class="tooltip-text">15 characters max. <br /> Lorem ipsum </div>
-                </div>
-            </label>
-            <input type="text" name="username" required class="form-input">
-        </div>
-
-        <div class="form-group">
-            <label for="email" class="form-label">Email:</label>
-            <input type="text" name="email" required class="form-input">
-        </div>
-
-        <div class="form-group">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" name="password" required class="form-input">
-        </div>
-
-        <div class="form-switcher">
-            <label for="showLogin">Already have an account?</label>
-        </div>
-
-        <p id="signupResponse" class="toaster"></p>
-
-        <input type="submit" value="Create" class="primary-btn">
-    </form>
-
-    <div class="form-hints">
-        <h4>Username Rules</h4>
-        <ul>
-            <li>4–20 characters</li>
-            <li>Letters, numbers, and underscores only</li>
-        </ul>
-
-        <h4>Password Rules</h4>
-        <ul>
-            <li>At least 6 characters</li>
-            <li>Must include letters and numbers</li>
-        </ul>
-
-        <h4>Email Rules</h4>
-        <ul>
-            <li>Valid email format (e.g., user@example.com)</li>
-        </ul>
     </div>
 
 

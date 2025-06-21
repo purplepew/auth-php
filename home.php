@@ -76,7 +76,7 @@
             <p id="infoResponse" class="toaster"></p>
 
             <input type="submit" value="Add information" class="primary-btn">
-            <p>Fill out your additional information to see more cats!</p>
+            <p>Fill out your <em>additional information</em> to see more <strong><em>cats!</em></strong></p>
         </form>
     <?php else: ?>
         <p>You’ve already completed your profile. 🎉</p>

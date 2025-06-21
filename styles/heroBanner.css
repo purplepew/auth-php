@@ -1,0 +1,44 @@
+ .hero {
+     text-align: center;
+ }
+
+ .hero svg {
+     width: 400px;
+     height: auto;
+     fill: black;
+ }
+
+ .hero p {
+     margin-top: 10px;
+     font-weight: bold;
+     font-size: 2rem;
+     text-transform: uppercase;
+ }
+
+ @media (max-width: 799px) {
+     .hero svg {
+         width: 300px;
+     }
+
+     .hero p {
+         margin-top: 10px;
+         font-weight: bold;
+         font-size: 14px;
+         text-transform: uppercase;
+     }
+
+ }
+
+  @media (max-width: 850px) {
+     .hero svg {
+         width: 350px;
+     }
+
+     .hero p {
+         margin-top: 10px;
+         font-weight: bold;
+         font-size: 1.5rem;
+         text-transform: uppercase;
+     }
+
+ }
