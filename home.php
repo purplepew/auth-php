@@ -11,7 +11,7 @@
     <script src="./scripts/logoutHandler.js" defer></script>
     <script src="./scripts/prefetchCats.js" defer></script>
     <script src="./scripts/renderCats.js" defer></script>
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>

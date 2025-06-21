@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cat seeing</title>
     <link rel="stylesheet" href="./styles/forms.css" />
     <link rel="stylesheet" href="./styles/formHints.css" />
     <link rel="stylesheet" href="./styles/heroBanner.css" />
@@ -24,11 +24,12 @@
         <p>LOG IN NOW, ADORABLE CATS AWAIT!</p>
     </div>
 
-    <!-- login/signup toggle radio button -->
-
     <div class="form-wrapper">
+        
+        <!-- login/signup toggle radio button -->
         <input type="radio" name="formState" id="showLogin" hidden checked>
         <input type="radio" name="formState" id="showSignup" hidden>
+
         <!-- login form -->
         <form method="POST" id="loginForm" class="form-card form-panel">
             <div class="form-group">
@@ -48,21 +49,13 @@
             </div>
 
             <p id="loginResponse" class="toaster"></p>
-
             <input type="submit" value="Login" class="primary-btn">
-
-
-
         </form>
 
         <!-- signup form -->
         <form method="POST" id="signupForm" class="form-card form-panel">
             <div class="form-group">
-                <label for="username" class="form-label">Username:
-                    <div class="tooltip-wrapper">?
-                        <div class="tooltip-text">15 characters max. <br /> Lorem ipsum </div>
-                    </div>
-                </label>
+                <label for="username" class="form-label">Username:</label>
                 <input type="text" name="username" required class="form-input">
             </div>
 
@@ -85,6 +78,7 @@
             <input type="submit" value="Create" class="primary-btn">
         </form>
 
+        <!-- form rules -->
         <div class="form-hints">
             <h4>Username Rules</h4>
             <ul>

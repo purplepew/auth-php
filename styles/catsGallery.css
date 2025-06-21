@@ -1,35 +1,40 @@
+.masonry {
+  column-count: 3;
+  column-gap: 1em;
+}
 
-    .masonry {
-      column-count: 3;
-      column-gap: 1em;
-    }
+.cat-card {
+  background: white;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    .cat-card {
-      background: white;
-      display: inline-block;
-      margin: 0 0 1em;
-      width: 100%;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
+.cat-card img {
+  width: 100%;
+  display: block;
+}
 
-    .cat-card img {
-      width: 100%;
-      display: block;
-    }
+.cat-card .desc {
+  padding: 10px;
+}
 
-    .cat-card .desc {
-      padding: 10px;
-    }
+.desc h3 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  color: #333;
+}
 
-    .desc h3 {
-      margin: 0 0 5px;
-      font-size: 1rem;
-      color: #333;
-    }
+.desc p {
+  font-size: 0.875rem;
+  color: #555;
+}
 
-    .desc p {
-      font-size: 0.875rem;
-      color: #555;
-    }
+@media (max-width: 799px) {
+  .masonry{
+    column-count: 1;
+  }
+}
